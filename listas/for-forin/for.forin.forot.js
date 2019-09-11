@@ -4,10 +4,27 @@ async function main() {
   try{
       const result = await service.obterPessoas('a')
       const names = []
+       console.time('for') //tempo de execução For
       for (let i = 0; i <= result.results.length -1; i++) {
-          const pessoa = result.ressults[i]
+          const pessoa = result.results[i]
           names.push(pessoa.name)
       }    
+      console.timeEnd('for') // fim do tempo de execução For
+    
+       console.time('forin')
+      for (let i in result.results) {
+        const pessoa = result.results[i]
+        names.push(pessoa.name)
+      }
+      console.timeEnd('forin') 
+
+      console.time('forof')
+      for (pessoa of result.results) {
+        names.push(pessoa.name)
+      }
+
+      console.timeEnd('forof')
+
       console.log(`names`, names)
     } catch (error) {
        console.error(`erro interno`, error)
