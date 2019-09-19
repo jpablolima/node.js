@@ -6,9 +6,15 @@ const   DEFAULT_ITEM_CADASTRAR = {
   poder:  'Speed',
   id: 1
 }
+const DEFAULT_ITEM_ATUALIZAR = {
+    nome: "Batman",
+    poder:"Rico",
+    id: 2
+}
 describe('Manipulação de Registro', () => {
     before(async () => {
       await database.cadastrar(DEFAULT_ITEM_CADASTRAR)
+      await database.cadastrar(DEFAULT_ITEM_ATUALIZAR)
     })
   before(async () => {
     await database.cadastrar(DEFAULT_ITEM_CADASTRAR)
@@ -35,6 +41,20 @@ describe('Manipulação de Registro', () => {
     const expected = true
     const resultado = await database.remover(DEFAULT_ITEM_CADASTRAR.id)
     deepEqual(resultado, expected)
-
   })
+  it('Atualizar dados pelo id', async() => {
+    const expected = {
+      ...DEFAULT_ITEM_ATUALIZAR,
+      nome: 'Lanterna Verde',
+      poder: 'Energia'
+    }
+    const novoDado = {
+      nome: 'Lanterna Verde',
+      poder: 'Energia'
+    }
+    await database.atualizar(DEFAULT_ITEM_ATUALIZAR.id, novoDado)
+    const [resultado] = await database.listar(DEFAULT_ITEM_ATUALIZAR.id)
+    deepEqual(resultado, expected)
+  })
+
 })
