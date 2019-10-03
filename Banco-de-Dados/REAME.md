@@ -1,7 +1,12 @@
-## Iniciando Docker 
-  sudo dockerd
-## Iniciando Docker
 
+
+## Iniciando Docker 
+  ### --- Instalação do Docker
+      curl -sS https://get.docker.com | sh
+   
+## Start Docker
+    /etc/init.d/docker start
+    
 ## Postgres
 docker run \
     --name postgres \
