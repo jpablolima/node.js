@@ -1,12 +1,34 @@
-
+## Remover Docker
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get purge docker-ce
+sudo rm -rf /var/lib/docker
+sudo apt-get remove docker-ce-cli  
+sudo apt-get remove docker.io
+sudo apt-get remove docker-engine
 
 ## Iniciando Docker 
   ### --- Instalação do Docker
       curl -sS https://get.docker.com | sh
-   
 ## Start Docker
     /etc/init.d/docker start
-    
+    ps -ef | grep docker
+    docker info
+    docker ps   
+    docker images
+### Criação de Container - Ubunto 19.04
+    docker run -i -t ubuntu:19.04 /bin/bash
+    docker attach <numero do processo do container>   
+    cat /etc/issue
+    mkdir python
+    apt-get install python3
+    apt-get install vim
+
+
+
+### Criação de Images Docker
+docker commit <numero do id> <nome para image - Descrição:versão>
+
+
 ## Postgres
 docker run \
     --name postgres \
