@@ -35,7 +35,7 @@ docker run \
     -e POSTGRES_USER=jpablo \
     -e POSTGRES_PASSWORD=bazinga \
     -e POSTGRES_DB=heroes \
-    -p 5453:5453 \
+    -p 5432:5432 \
     -d \
     postgres
 
@@ -61,13 +61,14 @@ docker run \
 docker pull mongoclient/mongoclient:2.2.0
 docker run -d -p 3000:3000 mongoclient/mongoclient
 
- ## Instalação 
+ ## Mongoclient
  docker run \
-    --name mongoclient \
-    -p 3000:3000 \
+    --name mongocliente \
+    -p 3001:3001 \
     --link mongodb:mongodb \
     -d \
     mongoclient/mongoclient
+ 
 
 
 
