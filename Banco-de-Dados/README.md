@@ -53,20 +53,25 @@ docker run \
     --name mongodb \
     -p 27017:27017 \
     -e MONGO_INITDB_ROOT_USERNAME=admin \
-    -e MONGO_INITDB_ROOT_PASSWORD=gokuadmin \
+    -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
     -d \
     mongo:4
 
 ## -- Cliente
-docker pull mongoclient/mongoclient:2.2.0
+docker pull mongoclient/mongoclient
 docker run -d -p 3000:3000 mongoclient/mongoclient
 
  ## Mongoclient
  docker run \
-    --name mongocliente \
-    -p 3001:3001 \
+    --name mongoclient \
+    -p 3000:3000 \
+    --link mongodb:mongodb \
+    -d docker run \
+    --name mongoclient \
+    -p 3000:3000 \
     --link mongodb:mongodb \
     -d \
+    mongoclient/mongoclient
     mongoclient/mongoclient
  
 
