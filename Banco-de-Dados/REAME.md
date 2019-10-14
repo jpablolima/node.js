@@ -1,4 +1,4 @@
-## Iniciando Docker 
+## Iniciando Docker Linux
   sudo dockerd
 ## Iniciando Docker
 
