@@ -15,6 +15,19 @@ sudo apt-get remove docker-engine
     docker info
     docker ps   
     docker images
+
+
+# Docker Comandos
+
+Para todas as instâncias
+docker stop $(docker ps -a -q)
+
+Remove todas as instâncias
+docker rm $(docker ps -a -q)
+
+Para todas as imagens
+docker image rm $(docker image ls -a -q)
+
 ### Criação de Container - Ubunto 19.04
     docker run -i -t ubuntu:19.04 /bin/bash
     docker attach <numero do processo do container>   
@@ -32,8 +45,8 @@ docker commit <numero do id> <nome para image - Descrição:versão>
 ### --- POSTGRES
 docker run \
     --name postgres \
-    -e POSTGRES_USER=erickwendel \
-    -e POSTGRES_PASSWORD=minhasenhasecreta \
+    -e POSTGRES_USER=jpablo \
+    -e POSTGRES_PASSWORD=bazinga \
     -e POSTGRES_DB=heroes \
     -p 5432:5432 \
     -d \
