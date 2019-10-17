@@ -1,3 +1,14 @@
+# Docker Comandos
+
+Para todas as instâncias
+docker stop $(docker ps -a -q)
+
+Remove todas as instâncias
+docker rm $(docker ps -a -q)
+
+Para todas as imagens
+docker image rm $(docker image ls -a -q)
+
 ## Remover Docker
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get purge docker-ce
@@ -71,9 +82,13 @@ docker run -d -p 3000:3000 mongoclient/mongoclient
     -p 3000:3000 \
     --link mongodb:mongodb \
     -d \
-    mongoclient/mongoclient
-    mongoclient/mongoclient
- 
+
+
+
+docker exec -it mongodb \
+    mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
+    --eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'bazinga', roles: [{role: 'readWrite', db: 'herois'}]})"
+  
 
 
 
