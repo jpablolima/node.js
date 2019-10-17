@@ -88,9 +88,9 @@ docker run \
 
 
 
-docker exec -it mongodb \
+winpty docker exec -it mongodb \
     mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
-    --eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'dragon ball', roles: [{role: 'readWrite', db: 'herois'}]})"
+    --eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'dragonball', roles: [{role: 'readWrite', db: 'herois'}]})"
   
 
 
