@@ -1,3 +1,14 @@
+# Docker Comandos
+
+Para todas as instâncias
+docker stop $(docker ps -a -q)
+
+Remove todas as instâncias
+docker rm $(docker ps -a -q)
+
+Para todas as imagens
+docker image rm $(docker image ls -a -q)
+
 ## Remover Docker
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get purge docker-ce
@@ -60,13 +71,13 @@ docker run \
     adminer
 
 ## ---- MONGODB
-docker run \
-    --name mongodb \
-    -p 27017:27017 \
-    -e MONGO_INITDB_ROOT_USERNAME=admin \
-    -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
-    -d \
-    mongo:4
+    docker run \
+        --name mongodb \
+        -p 27017:27017 \
+        -e MONGO_INITDB_ROOT_USERNAME=admin \
+        -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
+        -d \
+        mongo:4
 
 docker run \
     --name mongoclient \
@@ -75,11 +86,12 @@ docker run \
     -d \
     mongoclient/mongoclient
 
-winpty docker exec -it mongodb \
-mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
---eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'dragonball', roles: [{role: 'readWrite', db: 'herois'}]})"
 
 
+docker exec -it mongodb \
+    mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
+    --eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'dragon ball', roles: [{role: 'readWrite', db: 'herois'}]})"
+  
 
 
 
