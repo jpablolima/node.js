@@ -43,8 +43,8 @@ docker commit <numero do id> <nome para image - Descrição:versão>
 ### --- POSTGRES
 docker run \
     --name postgres \
-    -e POSTGRES_USER=erickwendel \
-    -e POSTGRES_PASSWORD=minhasenhasecreta \
+    -e POSTGRES_USER=jpablo \
+    -e POSTGRES_PASSWORD=bazinga \
     -e POSTGRES_DB=heroes \
     -p 5432:5432 \
     -d \
@@ -58,36 +58,27 @@ docker run \
     adminer
 
 ## ---- MONGODB
-docker run \
-    --name mongodb \
-    -p 27017:27017 \
-    -e MONGO_INITDB_ROOT_USERNAME=admin \
-    -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
-    -d \
-    mongo:4
+    docker run \
+        --name mongodb \
+        -p 27017:27017 \
+        -e MONGO_INITDB_ROOT_USERNAME=admin \
+        -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
+        -d \
+        mongo:4
 
 docker run \
     --name mongoclient \
     -p 3000:3000 \
     --link mongodb:mongodb \
     -d \
-<<<<<<< HEAD
+    mongoclient/mongoclient
 
 
 
 docker exec -it mongodb \
     mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
-    --eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'bazinga', roles: [{role: 'readWrite', db: 'herois'}]})"
+    --eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'dragon ball', roles: [{role: 'readWrite', db: 'herois'}]})"
   
-=======
-    mongoclient/mongoclient
-
-winpty docker exec -it mongodb \
-mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
---eval "db.getSiblingDB('herois').createUser({user: 'jpablolima', pwd: 'dragonball', roles: [{role: 'readWrite', db: 'herois'}]})"
-
-
->>>>>>> 967c6f81f6b9fbacd4f0848f57157fb2bf9b2821
 
 
 
