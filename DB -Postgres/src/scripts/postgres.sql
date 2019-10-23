@@ -7,6 +7,7 @@ CREATE TABLE TB_HEROIS (
 -- Create
 INSERT INTO TB_HEROIS(NOME, PODER)
 VALUES
+     ('Goku', 'KI')
      ('Flash','Velecidade'),
      ('Batman', 'Rico')
 --Read
