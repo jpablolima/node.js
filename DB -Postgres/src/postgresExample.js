@@ -1,7 +1,6 @@
 // npm install sequelize
 // npm install pg-hstore pg
 
-
 const Sequelize = require('sequelize')
 const driver = new Sequelize(
   'heroes',
@@ -13,7 +12,6 @@ const driver = new Sequelize(
     operatorsAliases:false
   }
 )
-
 
 async function main() {
   const Herois = driver.define('herois', {
@@ -36,10 +34,17 @@ async function main() {
       freezeTableName: false,
       timestamps: false
   })
+
   await Herois.sync()
+  await Herois.create({
+    nome:'Lanterne Verde',
+    poder:'Energia'
+  })
 
   const result = await Herois.findAll({
-    raw: true
+    raw: true,
+    attributes:['nome']
   })
   console.log('result', result)
 }
+main()

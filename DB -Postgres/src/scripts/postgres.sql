@@ -7,12 +7,12 @@ CREATE TABLE TB_HEROIS (
 -- Create
 INSERT INTO TB_HEROIS(NOME, PODER)
 VALUES
-     ('Goku', 'KI')
+     ('Goku', 'KI'),
      ('Flash','Velecidade'),
      ('Batman', 'Rico')
 --Read
-SELECT * FROM TB_HEROIS;
-SELECT * FROM TB_HEROIS WHERE NOME='Flash'; 
+     SELECT * FROM TB_HEROIS;
+     SELECT * FROM TB_HEROIS WHERE NOME='Flash'; 
 
 -- Update
 UPDATE TB_HEROIS
